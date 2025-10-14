@@ -20,7 +20,7 @@ import { Page } from 'playwright-chromium';
 import { Project } from 'ts-morph';
 
 import * as wpp from '../';
-import { getPage } from './browser';
+import { getPage } from './browserPlaywright';
 
 declare global {
   interface Window {

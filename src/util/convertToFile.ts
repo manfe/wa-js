@@ -1,5 +1,5 @@
 /*!
- * Copyright 2023 WPPConnect Team
+ * Copyright 2022 WPPConnect Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,8 @@ export async function convertToFile(
   if (data instanceof File) {
     return data;
   }
+
+  console.debug('Converting to File', { data, mimetype, filename });
 
   let blob: Blob | null = null;
 

@@ -14,19 +14,36 @@
  * limitations under the License.
  */
 
-import { getPage } from './browser';
-
 async function start() {
   const args = process.argv.slice(2);
 
+  // Detect engine: --engine=puppeteer or --engine=playwright (default: playwright)
+  const engineArgIndex = args.findIndex((arg) => arg.startsWith('--engine='));
+  let engine = 'playwright'; // default
+  if (engineArgIndex !== -1) {
+    engine = args[engineArgIndex].split('=')[1];
+    args.splice(engineArgIndex, 1); // Remove from args
+  }
+
+  // Dynamic import based on engine
+  let getPage: any;
+  if (engine === 'puppeteer') {
+    ({ getPage } = await import('./browserPuppeteer'));
+  } else {
+    ({ getPage } = await import('./browserPlaywright'));
+  }
+
+  const headless = args.includes('--headless');
+  const devtools = args.includes('--devtools');
+
   const { page } = await getPage({
-    headless: false,
-    devtools: true,
+    headless,
+    devtools,
     viewport: null,
     args,
   });
 
-  page.on('load', (page) => {
+  page.on('load', () => {
     const debug = process.env['DEBUG'] || '*';
 
     page.evaluate((debug: string) => {

@@ -20,7 +20,7 @@ import * as path from 'path';
 import { JSDoc, Node, Project } from 'ts-morph';
 
 import * as wpp from '../';
-import { getPage } from './browser';
+import { getPage } from './browserPlaywright';
 
 declare global {
   interface Window {

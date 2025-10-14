@@ -16,7 +16,7 @@
 
 import * as playwright from 'playwright-chromium';
 
-import { preparePage, URL } from './browser';
+import { preparePage, URL } from './browserPlaywright';
 
 async function start() {
   console.log('Connecting to Chrome');

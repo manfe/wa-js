@@ -75,6 +75,7 @@
     "parse-data-url": "^6.0.0",
     "playwright-chromium": "^1.55.1",
     "prettier": "^3.6.2",
+    "puppeteer": "^24.24.1",
     "release-it": "^19.0.5",
     "shx": "^0.4.0",
     "terser-webpack-plugin": "^5.3.14",

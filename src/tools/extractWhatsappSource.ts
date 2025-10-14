@@ -20,7 +20,7 @@ import fetch from 'node-fetch';
 import * as path from 'path';
 import * as prettier from 'prettier';
 
-import { WA_DIR } from './browser';
+import { WA_DIR } from './browserPlaywright';
 
 async function start() {
   const WA_VERSION =

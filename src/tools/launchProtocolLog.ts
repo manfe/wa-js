@@ -17,7 +17,7 @@
 import * as util from 'util';
 
 import * as wpp from '../';
-import { getPage } from './browser';
+import { getPage } from './browserPlaywright';
 
 declare global {
   interface Window {
