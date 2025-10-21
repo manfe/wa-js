@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+export { changeEnviromentDevice } from './changeEnviromentDevice';
 export { genLinkDeviceCodeForPhoneNumber } from './genLinkDeviceCodeForPhoneNumber';
 export { getAuthCode } from './getAuthCode';
 export { getHistorySyncProgress, HistorySyncProgress, } from './getHistorySyncProgress';
