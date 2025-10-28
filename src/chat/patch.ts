@@ -135,7 +135,12 @@ function applyPatch() {
       }
 
       // Create with LID for other contexts
-      const chatParams: any = { chatId };
+      // CRITICAL: Must provide accountLid to avoid "Lid is missing in chat table" error
+      // when isLidMigrated() returns true
+      const chatParams: any = {
+        chatId,
+        accountLid: chatId, // accountLid is required for LID chats after migration
+      };
       await createChat(
         chatParams,
         'createChat',
