@@ -206,11 +206,23 @@ function rehydrateNestedMessage(value: any): MsgModel | undefined {
 
   if (typeof value === 'string') {
     const trimmed = value.trim();
-    return trimmed.startsWith('{') ? rehydrateMessage(trimmed) : undefined;
+    if (!trimmed.startsWith('{')) {
+      return undefined;
+    }
+
+    try {
+      return rehydrateMessage(trimmed);
+    } catch (error) {
+      return undefined;
+    }
   }
 
   if (typeof value === 'object') {
-    return rehydrateMessage(JSON.stringify(value));
+    try {
+      return rehydrateMessage(JSON.stringify(value));
+    } catch (error) {
+      return undefined;
+    }
   }
 
   return undefined;
