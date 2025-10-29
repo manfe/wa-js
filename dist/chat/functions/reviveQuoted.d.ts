@@ -1,5 +1,5 @@
 /*!
- * Copyright 2021 WPPConnect Team
+ * Copyright 2025 WPPConnect Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import './events';
-import './patch';
-export * from './defaultSendMessageOptions';
-export * from './functions';
-export * from './types';
-export * from './util';
+import { MsgModel } from '../../whatsapp';
+/**
+ * Rehydrate a serialized message payload (JSON string) into a MsgModel so it
+ * can be used as a quoted message even when it is no longer present in the
+ * local WhatsApp store.
+ */
+export declare function reviveQuoted(payload: string): MsgModel;
