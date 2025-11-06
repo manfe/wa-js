@@ -14,8 +14,11 @@
  * limitations under the License.
  */
 import { Wid } from './Wid';
-/** @whatsapp WAWebApiContact
- * @whatsapp 98 >= 3.0.0
+/**
+ * @whatsapp WAWebApiContact
+ * Exposing Lid / PhoneNumber cache functions
+ * These functions manage the cache mapping between LID and Phone Numbers.
+ * Without hitting whatsapp api.
  */
 export declare namespace lidPnCache {
     function getPhoneNumber(lidWid: Wid): Wid | undefined;
