@@ -15,8 +15,12 @@
  */
 import { WPPError } from '../../util';
 import { Wid } from '../../whatsapp';
+export interface PnLidWid {
+    id: string;
+    server: string;
+    _serialized: string;
+}
 export interface PnLidContactInfo {
-    id: Wid;
     name?: string;
     shortName?: string;
     pushname?: string;
@@ -24,20 +28,13 @@ export interface PnLidContactInfo {
     verifiedName?: string;
     isBusiness?: boolean;
     isEnterprise?: boolean;
-    isSmb?: boolean;
     verifiedLevel?: number;
-    privacyMode?: {
-        actualActors?: number;
-        hostStorage?: number;
-        privacyModeTs?: number;
-    };
-    isContactSyncCompleted?: number;
-    textStatusLastUpdateTime?: number;
     syncToAddressbook?: boolean;
+    isContactSyncCompleted?: number;
 }
 export interface PnLidEntryResult {
-    lid?: Wid;
-    phoneNumber?: Wid;
+    lid?: PnLidWid;
+    phoneNumber?: PnLidWid;
     contact?: PnLidContactInfo;
 }
 export declare class InvalidWidForGetPnLidEntry extends WPPError {
